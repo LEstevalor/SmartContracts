@@ -188,10 +188,6 @@ Golang编写的智能合约（链码）安装和实例化到网络中的对等�
 ## 部署到kubernetes集群
 因本篇资源限制，只用一台机器去实验，因此将用到minikube工具构建k8s集群，且使用Helm包管理工具和fabric-operator去部署和管理K8S。
 
-使用仓库：https://github.com/hyperledger/bevel-operator-fabric
-
-对应文档：https://hyperledger.github.io/bevel-operator-fabric/docs/getting-started
-
 使用版本：
 
 minikube version: v1.30.1
@@ -205,3 +201,36 @@ go version go1.20.5 linux/amd64
 git version 2.37.1
 
 ![模拟日蚀](images/img9.png)
+
+采取以下方式安装，则需前置安装KinD、krew及istio
+
+``` bash
+# 安装KinD
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/  # sudo mv ./kind /usr/local/bin/
+# 本篇使用 kind v0.11.1 go1.16.4 linux/amd64
+
+# 安装krew，网上搜寻资源基本不可再利用，由于链接大版本更新，只能官网下载
+wget https://github.com/kubernetes-sigs/krew/releases
+wget https://github.com/kubernetes-sigs/krew/releases/download/v0.4.4/krew.yaml
+tar zxvf krew.tar.gz
+./krew-linux_amd64 install krew
+source ~/.bashrc
+
+# 安装hlf插件
+kubectl krew install hlf
+
+#安装服务网格istio
+curl -L https://istio.io/downloadIstio | sh -
+chmod +x istio-*
+sudo mv istio-*/bin/istioctl /usr/local/bin/
+```
+
+类似前面docker步骤即可模拟
+
+![初步模拟](images/img10.png)
+
+具体使用参考仓库：https://github.com/hyperledger/bevel-operator-fabric
+
+具体使用仓库文档：https://hyperledger.github.io/bevel-operator-fabric/docs/getting-started
