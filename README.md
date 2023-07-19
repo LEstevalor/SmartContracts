@@ -71,6 +71,7 @@ sudo apt-get update
 sudo apt-get install git
 ```
 作者使用版本：
+
 ![安装版本](images/img1.png)
 
 ####
@@ -145,8 +146,11 @@ peer chaincode install -n mychain -v 1.0 -p mychain
 sudo ./network.sh createChannel
 ```
 创建通道成功：
+
 ![通道](images/img3.png)
+
 启动链码：
+
 ![启动链码](images/img4.png)
 
 ####
@@ -169,10 +173,14 @@ sudo ./network.sh createChannel
 Golang编写的智能合约（链码）安装和实例化到网络中的对等节点。
 
 模拟女巫攻击：攻击者创建多个虚假身份来控制网络，因机器数目、环境与实验环境有限，本篇通过使用过期的交易时间戳或无效的参数调用智能合约。
+
 ![模拟女巫1](images/img6.png)
 ![模拟女巫2](images/img7.png)
+
 模拟日蚀攻击：攻击者试图通过控制目标节点的所有对等连接来影响网络。往往攻击者可能会尝试发送具有较低信誉值的交易。这里使用低于节点信誉值的信誉分数调用智能合约。
+
 ![模拟日蚀](images/img8.png)
+
 显然以上恶意调用（模拟攻击）都失败，有一定有效性。
 
 
