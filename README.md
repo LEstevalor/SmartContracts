@@ -186,6 +186,6 @@ Golang编写的智能合约（链码）安装和实例化到网络中的对等�
 
 ###
 ## 部署到kubernetes集群
-因本篇资源限制，只用一台机器去实验，因此将用到minikube工具构建k8s集群，使用fabric-operator去部署和管理K8S。
+因本篇资源限制，只用一台机器去实验，因此将用到minikube工具构建k8s集群，且使用Helm包管理工具和fabric-operator去部署和管理K8S。
 
 
