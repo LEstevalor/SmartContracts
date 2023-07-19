@@ -118,6 +118,7 @@ fabric-samples/test-network/下，启动脚本以启动fabric网络
 ./network.sh up
 ```
 网络由两个peer节点，一个order节点构成。
+
 ![fabric网络运行](images/img2.png)
 
 ###
@@ -183,5 +184,8 @@ Golang编写的智能合约（链码）安装和实例化到网络中的对等�
 
 显然以上恶意调用（模拟攻击）都失败，有一定有效性。
 
+###
+## 部署到kubernetes集群
+因本篇资源限制，只用一台机器去实验，因此将用到minikube工具构建k8s集群，使用fabric-operator去部署和管理K8S。
 
 
