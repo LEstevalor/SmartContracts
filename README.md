@@ -42,7 +42,7 @@
 步骤大致流程：
 一、前置安装；二、部署Hyperledger Fabric网络；三、网络测试；四、编写、编译打包智能合约；五、部署链码；六、测试链码
 
-###
+##
 （1）准备环境：安装Docker（版本20.10.11），docker-compose（20.10.11），Go（版本1.20.5），Git（版本2.37.1），fabric源码和fabric-samples。
 
 docker安装
@@ -74,7 +74,7 @@ sudo apt-get install git
 
 ![安装版本](images/img1.png)
 
-####
+###
 （2）部署Hyperledger Fabric
 
 安装fabric源码和安装fabric-samples
@@ -110,7 +110,7 @@ cd ../scripts
 }
 ```
 
-###
+##
 （3）网络测试
 
 fabric-samples/test-network/下，启动脚本以启动fabric网络
@@ -121,7 +121,7 @@ fabric-samples/test-network/下，启动脚本以启动fabric网络
 
 ![fabric网络运行](images/img2.png)
 
-###
+##
 （4）编写、编译打包智能合约
 智能合约（smart contract）本质上是一段运行在区块链网络上的业务逻辑代码，定义了业务资产和不同组织的业务逻辑，是区块链应用的核心业务逻辑。
 
@@ -137,7 +137,7 @@ docker build -t <chain_name>:1.0
 go build <main.go>
 ```
 
-###
+##
 （5）部署链码
 /etc/hosts配置域名，创建通道，进行网络交互。
 ``` bash
@@ -154,7 +154,7 @@ sudo ./network.sh createChannel
 
 ![启动链码](images/img4.png)
 
-####
+##
 （6）测试链码
 
 按自定义智能合约测试，调用updateNodeReputation将节点ID名node123信誉值赋为80，并用该节点提交具有key1-100交易，提供交易信誉值75，
@@ -168,7 +168,7 @@ sudo ./network.sh createChannel
 
 *其实现方式：通过在服务网格引入可信节点实现，这些服务节点可以是物理机、虚拟机或容器，节点间提供网络互相通信形成网络，可信服务网格通过在网格中部署代理实现对服务间通信的安全管理和控制。这些节点具高度可信的身份和安全性，可以对服务通信进行安全加密、访问控制等。从而确保服务通信的可信性。实现方式包括搭建主链和侧链、设计交易结构、实现跨链交易、实现共识机制和实现智能合约等*
 
-###
+##
 在测试环境中Fabric网络已启动并运行正常。
 
 Golang编写的智能合约（链码）安装和实例化到网络中的对等节点。
@@ -184,7 +184,7 @@ Golang编写的智能合约（链码）安装和实例化到网络中的对等�
 
 显然以上恶意调用（模拟攻击）都失败，有一定有效性。
 
-###
+##
 ## 部署到kubernetes集群
 因本篇资源限制，只用一台机器去实验，因此将用到minikube工具构建k8s集群，且使用Helm包管理工具和fabric-operator去部署和管理K8S。
 
