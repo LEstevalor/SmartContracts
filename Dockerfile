@@ -6,7 +6,7 @@ COPY chaincode /root/go/src/chaincode/chaincode
 # 将工作目录更改为智能合约目录
 WORKDIR /root/go/src/chaincode
 
-# 设置核心链码ID名称和对等地址环境变量（请根据您的实际配置进行修改）
+# 设置核心链码ID名称和对等地址环境变量
 ENV CORE_CHAINCODE_ID_NAME=mychain:1.0
 ENV CORE_PEER_ADDRESS=peer0.org1.example.com:7051
 
